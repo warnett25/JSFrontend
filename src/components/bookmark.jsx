@@ -1,14 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 
 const BookMark = ({ bookmark, handleToggleBookMark, _id }) => {
-  console.log(bookmark)
-  //   const [bookmark, setBookmark] = useState(props.bookmark)
-
-  //   const handleClick = () => {
-  //     setBookmark((prevState) => !prevState)
-  //   }
-  // {users} = props
-
   const getClasses = () => {
     let classes = "bi bi-bookmark"
     return (classes += bookmark ? "-fill" : "")
