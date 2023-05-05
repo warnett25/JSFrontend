@@ -1,24 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const BookMark = ({ bookmark, handleToggleBookMark, _id }) => {
+const BookMark = ({ status, onHandleToggleBookmark }) => {
     const getClasses = () => {
         let classes = "bi bi-bookmark"
-        return (classes += bookmark ? "-fill" : "")
+        return (classes += status ? "-fill" : "")
     }
 
-    return (
-        <i
-            className={getClasses()}
-            onClick={() => handleToggleBookMark(_id)}
-        ></i>
-    )
+    return <i className={getClasses()} onClick={onHandleToggleBookmark}></i>
 }
 
 BookMark.propTypes = {
-    bookmark: PropTypes.bool.isRequired,
-    handleToggleBookMark: PropTypes.func.isRequired,
-    _id: PropTypes.string.isRequired
+    status: PropTypes.bool.isRequired,
+    _id: PropTypes.string,
+    onHandleToggleBookmark: PropTypes.func
 }
 
 export default BookMark
