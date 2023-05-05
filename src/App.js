@@ -5,7 +5,6 @@ import api from "./api"
 
 function App() {
     const [users, setUsers] = useState(api.users.fetchAll())
-    console.log(typeof users)
 
     const handleDelete = (userId) => {
         setUsers((prevState) => prevState.filter((user) => user._id !== userId))
@@ -16,9 +15,7 @@ function App() {
             users.map((user) => {
                 if (user._id === userId) {
                     return { ...user, bookmark: !user.bookmark }
-                } else {
-                    return { ...user }
-                }
+                } else return user
             })
         )
     }
@@ -28,8 +25,8 @@ function App() {
             <SearchStatus number={users.length} />
             <Users
                 users={users}
-                handleDelete={handleDelete}
-                handleToggleBookMark={handleToggleBookMark}
+                onDelete={handleDelete}
+                onToggleBookMark={handleToggleBookMark}
             />
         </div>
     )
